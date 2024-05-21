@@ -5,7 +5,7 @@ import { getUser } from "@/app/services/queries";
 import styles from "@/app/ui/user.module.css";
 import Image from "next/image";
 
-const SingleUserPage = async ({ params }) => {
+const SingleUserPage = async ({ params }: { params: { id: string } }) => {
   const { id } = params;
   const user = await getUser(id);
   console.log(user);

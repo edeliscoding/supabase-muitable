@@ -15,7 +15,7 @@ export function useDeleteUser() {
         queryKey: ["users"],
       });
     },
-    onError: (err) => toast.error(err.message),
+    // onError: (err) => toast.error(err.message),
   });
 
   return { isDeleting, removeUser };

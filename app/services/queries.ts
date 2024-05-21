@@ -9,8 +9,7 @@ export async function getUsers() {
   return data;
 }
 
-
-export async function getUser(userId) {
+export async function getUser(userId: string) {
   const { data, error } = await supabase
     .from("users")
     .select("*")

@@ -12,6 +12,7 @@ type Props = {
 };
 
 const Add = (props: Props) => {
+  console.log(props);
   // TEST THE API
 
   // const queryClient = useQueryClient();
@@ -53,6 +54,14 @@ const Add = (props: Props) => {
     [key: string]: any; // This can be more specific if you know the exact structure
   };
 
+  type NewUser = {
+    username: string;
+    email: string;
+    phone: string;
+    firstName: string;
+    lastName: string;
+    // other fields...
+  };
   const form = useForm<FormValues>({
     defaultValues: {
       // const response = await fetch(
@@ -85,7 +94,16 @@ const Add = (props: Props) => {
   const AddUserSubmit = (data: FormValues) => {
     // e.preventDefault();
     // console.log(data);
-    AddUser(data);
+    const newUser: NewUser = {
+      username: data.username,
+      email: data.email,
+      phone: data.phone, // replace with actual phone data
+      firstName: data.firstName, // replace with actual first name data
+      lastName: data.lastName, // replace with actual last name data
+      // other fields...
+    };
+
+    AddUser(newUser);
     //add new item
     // mutation.mutate();
     props.setOpen(false);
@@ -101,7 +119,7 @@ const Add = (props: Props) => {
           {props.columns
             .filter((item) => item.field !== "id" && item.field !== "img")
             .map((column) => (
-              <div className="item">
+              <div className="item" key={column.headerName}>
                 <label>{column.headerName}</label>
                 <input
                   // type={column.type}

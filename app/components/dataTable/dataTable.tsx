@@ -27,7 +27,7 @@ const DataTable = (props: Props) => {
   // });
   const { removeUser, isDeleting } = useDeleteUser();
 
-  const handleDelete = (id: number) => {
+  const handleDelete = (id: string) => {
     //delete the item
     removeUser(id);
   };

@@ -84,7 +84,9 @@ export default function Users() {
   //   });
 
   const { isLoading, error, users } = useUsers();
-  console.log(users);
+
+  const userRows = users ?? [];
+
   return (
     <div className="users p-4">
       <div className="info">
@@ -103,7 +105,7 @@ export default function Users() {
       {isLoading ? (
         "Loading..."
       ) : (
-        <DataTable slug="users" columns={columns} rows={users} />
+        <DataTable slug="users" columns={columns} rows={userRows} />
       )}
       {open && <Add slug="user" columns={columns} setOpen={setOpen} />}
     </div>
