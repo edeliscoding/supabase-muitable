@@ -33,6 +33,7 @@ const SingleUserPage = async ({ params }: { params: { id: string } }) => {
             type="text"
             name="username"
             placeholder={user.data.username}
+            defaultValue={user.data.username}
           />
           <label>Email</label>
           <input
